@@ -1,0 +1,189 @@
+/* General Body Styling - Matches Safety Tips */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff8c42, #ff6b35); /* Orange gradient */
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* Navigation Bar - Exact Same as Safety Tips */
+.top-nav {
+    background: rgba(139, 69, 19, 0.9); /* Darker brown with transparency */
+    padding: 15px 0;
+    margin: 20px 40px 30px 40px; /* Top Right Bottom Left */
+    border-radius: 15px;
+    backdrop-filter: blur(10px); /* Glass effect */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.top-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container { /* This is a general container for content as well */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff; /* White logo text */
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: #ffb347; /* Lighter orange for links */
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    background: rgba(255, 107, 53, 0.3); /* Lighter orange transparent background on hover/active */
+    color: #fff; /* White text on hover/active */
+}
+
+/* Header Section - Exact Same as Safety Tips (now with brown background) */
+header {
+    text-align: center;
+    background: rgba(139, 69, 19, 0.8); /* Darker brown background */
+    margin: 0px 40px 40px 40px; /* Top Right Bottom Left (match nav side margins) */
+    padding: 60px 20px; /* Consistent padding */
+    border-radius: 15px; /* Rounded corners */
+    backdrop-filter: blur(10px); /* Glass effect */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    margin: 0 0 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #ffd700; /* Gold-yellow for subtitle */
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+}
+/* Airplane Diagram Section */
+.diagram-section {
+text-align: center;
+margin: 20px 0;
+padding: 20px;
+}
+.airplane-diagram {
+max-width: 100%;
+height: auto;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Main Content Grid - Matches Safety Tips layout with boxed information */
+.main-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 40px 50px 40px; /* Top Right Bottom Left */
+    padding: 0; /* Remove padding here, let cards handle internal padding */
+}
+
+.content-card {
+    background: rgba(139, 69, 19, 0.8); /* Darker brown for cards */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.content-card h2 {
+    color: white; /* White titles for cards */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #ffb347; /* Lighter orange underline */
+    padding-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid; /* Use grid for list items for better spacing */
+    gap: 10px; /* Space between list item boxes */
+}
+
+/* Styling for individual information boxes within the card */
+.info-list li {
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #ffcc99; /* Light orange text */
+    font-size: 1rem;
+    line-height: 1.4;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2); /* Subtle inner shadow */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Ensure glass effect on these too */
+}
+
+.info-list li:hover {
+    background: rgba(255, 107, 53, 0.3); /* Hover effect - brighter orange transparent */
+    color: white;
+    transform: translateX(3px); /* Slight movement on hover */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+    
+    .nav-links li a {
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
+    
+    .main-content-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 20px;
+        margin: 0 20px 30px 20px; /* Smaller margins on mobile */
+    }
+
+    .top-nav, header {
+        margin: 10px 20px; /* Smaller margins on mobile */
+        padding: 40px 15px;
+    }
+}

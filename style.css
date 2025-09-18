@@ -1,0 +1,392 @@
+/* Reset default browser styles for consistent appearance across all browsers */
+* {
+    margin: 0;           /* Remove default margins from all elements */
+    padding: 0;          /* Remove default padding from all elements */
+    box-sizing: border-box;  /* Include padding and borders in element width/height calculations */
+}
+
+/* Main page styling - defines the overall look and feel of the website */
+body {
+    font-family: 'Arial', sans-serif;  /* Set a clean, readable font for all text */
+    
+    /* Create an animated gradient background using warm colors (red to orange) */
+    background: linear-gradient(45deg, #ff0000, #ff4500, #ff6600, #ff8c00);
+    background-size: 400% 400%;        /* Make gradient larger than screen for smooth animation */
+    animation: neonGradient 6s ease-in-out infinite;  /* Apply continuous color animation */
+    
+    color: white;          /* Set all text to white for good contrast against colored background */
+    min-height: 100vh;     /* Ensure page covers at least the full height of the screen */
+    overflow-x: hidden;    /* Prevent horizontal scrolling to maintain clean layout */
+}
+
+/* Animation that creates the moving gradient effect on the background */
+@keyframes neonGradient {
+    0% { background-position: 0% 50%; }    /* Animation start position */
+    50% { background-position: 100% 50%; } /* Midpoint - gradient shifts across screen */
+    100% { background-position: 0% 50%; }  /* End position - returns to start for seamless loop */
+}
+
+/* Background decoration element - can be used for additional visual effects */
+.geometric-bg {
+    position: fixed;       /* Element stays in place when user scrolls */
+    top: 0;               /* Position at top of screen */
+    left: 0;              /* Position at left edge of screen */
+    width: 100%;          /* Cover full width of screen */
+    height: 100%;         /* Cover full height of screen */
+    z-index: -1;          /* Place behind all other content */
+}
+
+.shape {
+    position: absolute;                           /* Position shapes anywhere on the screen */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border for subtle visibility */
+    border-radius: 50%;                          /* Make shapes perfectly circular */
+    animation: floatShapes 8s ease-in-out infinite; /* Apply floating animation that repeats forever */
+}
+
+/* First floating shape - medium-sized circle in upper right area */
+.shape-1 {
+    width: 100px;                               /* Set circle diameter to 100 pixels */
+    height: 100px;                             /* Keep it perfectly square for round shape */
+    top: 20%;                                  /* Position 20% down from top of screen */
+    left: 80%;                                 /* Position 80% across from left edge */
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.6); /* Add orange glow effect around the shape */
+    animation-delay: 0s;                       /* Start animation immediately */
+}
+
+/* Second floating shape - larger circle in upper left area */
+.shape-2 {
+    width: 150px;                              /* Larger diameter for visual variety */
+    height: 150px;                            /* Keep proportions square */
+    top: 60%;                                 /* Position lower on screen than shape-1 */
+    left: 10%;                                /* Position near left edge */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); /* Add red glow effect, stronger than shape-1 */
+    animation-delay: 2s;                      /* Wait 2 seconds before starting animation */
+}
+
+/* Third floating shape - smallest circle in middle area */
+.shape-3 {
+    width: 80px;                              /* Smallest diameter for subtle accent */
+    height: 80px;                            /* Maintain square proportions */
+    top: 30%;                                /* Position in middle-upper area */
+    /* left property appears to be cut off in the image */
+}
+.shape-4 {
+    width: 120px;                               /* Medium-large circle diameter */
+    height: 120px;                             /* Keep perfectly square for circular shape */
+    top: 70%;                                  /* Position near bottom of screen */
+    right: 20%;                                /* Position from right edge instead of left */
+    box-shadow: 0 0 25px rgba(255, 99, 0, 0.6); /* Orange glow effect with medium intensity */
+    animation-delay: 6s;                       /* Wait 6 seconds before starting animation */
+}
+
+/* Animation that makes all shapes float up and down while rotating */
+@keyframes floatShapes {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg);    /* Start and end position - no movement, no rotation */
+    }
+    50% { 
+        transform: translateY(-20px) rotate(180deg); /* Middle of animation - move up 20px and rotate halfway */
+    }
+}
+
+/* Main layout container - creates a responsive grid system for page content */
+.main-grid {
+    display: grid;                             /* Use CSS Grid for flexible layout */
+    grid-template-columns: 1fr 300px;         /* Two columns: flexible main area and fixed 300px sidebar */
+    gap: 30px;                                /* Space between grid items */
+    padding: 40px;                            /* Inner spacing around entire grid */
+    min-height: 100vh;                        /* Ensure grid covers full screen height */
+    max-width: 1200px;                        /* Limit maximum width for readability */
+    margin: 0 auto;                           /* Center the grid horizontally on page */
+}
+
+.header-section {
+    grid-column: 1 / -1;                      /* Span from first column to last column */
+    background: rgba(0, 0, 0, 0.4);           /* Semi-transparent dark background */
+    backdrop-filter: blur(15px);              /* Apply blur effect to background behind header */
+    border: 2px solid rgba(255, 69, 0, 0.8); /* Orange border that matches the theme */
+    border-radius: 20px;                      /* Rounded corners for the header section */
+    padding: 20px;                            /* Inner spacing for content */
+}
+
+/* Creates a rotating gradient border effect behind the header section */
+.header-section::before {
+    content: '';                               /* Required for pseudo-element to display */
+    position: absolute;                        /* Position relative to the header container */
+    top: -50%;                                /* Extend above the header */
+    left: -50%;                               /* Extend to the left of the header */
+    width: 200%;                              /* Make twice as wide as the header */
+    height: 200%;                             /* Make twice as tall as the header */
+    background: conic-gradient(from 0deg, transparent, rgba(255, 69, 0, 0.2), transparent); /* Spinning gradient effect */
+    animation: rotate 10s linear infinite;     /* Continuously rotate the gradient */
+}
+
+/* Animation that creates the spinning border effect */
+@keyframes rotate {
+    100% { 
+        transform: rotate(360deg);             /* Complete one full rotation */
+    }
+}
+
+/* Container for the main title content - ensures it appears above the rotating background */
+.title-container {
+    position: relative;                        /* Allows z-index positioning */
+    z-index: 2;                               /* Places content above the rotating background effect */
+}
+
+/* Styling for the airplane icon in the header */
+.plane-icon {
+    font-size: 3rem;                          /* Large icon size for visual impact */
+    margin-bottom: 15px;                      /* Space below the icon */
+    text-shadow: 0 0 20px rgba(255, 69, 0, 0.8); /* Orange glow effect around the icon */
+    animation: bounce 2s ease-in-out infinite; /* Apply bouncing animation */
+}
+/* Animation that makes the airplane icon gently bounce up and down */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% { /* Animation keyframes would continue here - likely 0%, 50%, 100% values */
+        transform: translateY(-10px);
+    }
+}
+
+/* Main title styling - creates large, bold header text */
+.main-title {
+    font-size: 4rem;                          /* Extra large text size for main heading */
+    font-weight: 900;                         /* Maximum font thickness for bold impact */
+}
+
+
+/* Second main title block - appears to be duplicate styling */
+.main-title {
+    font-size: 4rem;                          /* Same large text size as above */
+    font-weight: 900;                         /* Same bold weight as above */
+    letter-spacing: 3px;                      /* Adds space between each letter for style */
+    text-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 69, 0, 0.6); /* Double glow effect - red and orange */
+    margin-bottom: 15px;                      /* Space below the title */
+    animation: glow 3s ease-in-out infinite alternate; /* Applies pulsing glow animation */
+}
+
+/* Animation that creates pulsing glow effect on the title */
+@keyframes glow {
+    from { 
+        text-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 69, 0, 0.6); /* Starting glow intensity */
+    }
+    to { 
+        text-shadow: 0 0 40px rgba(255, 0, 0, 1), 0 0 80px rgba(255, 69, 0, 0.8); /* Enhanced glow intensity */
+    }
+}
+
+/* Subtitle text styling - smaller text below main title */
+.subtitle {
+    font-size: 1.2rem;                        /* Medium text size for subtitle */
+    color: rgba(255, 140, 0, 0.9);           /* Orange color with slight transparency */
+    letter-spacing: 2px;                      /* Spacing between letters for readability */
+    text-transform: uppercase;                /* Makes all text uppercase */
+}
+
+
+/* Navigation panel container with glass morphism effect */
+.nav-panel {
+    background: rgba(0, 0, 0, 0.6);          /* Semi-transparent black background */
+    backdrop-filter: blur(20px);             /* Blurs content behind panel for glass effect */
+    border: 2px solid rgba(255, 140, 0, 0.7); /* Orange border with transparency */
+    border-radius: 20px;                     /* Rounded corners for modern look */
+    padding: 30px 20px;                      /* Internal spacing - more top/bottom, less left/right */
+    height: fit-content;                     /* Height adjusts to content inside */
+    box-shadow: 0 0 25px rgba(255, 69, 0, 0.3); /* Orange glow shadow around panel */
+}
+
+/* Header text inside the navigation panel */
+.nav-header {
+    text-align: center;                      /* Centers the header text */
+    font-size: 1rem;                         /* Standard text size for header */
+    font-weight: 900;                        /* Maximum bold weight for emphasis */
+    color: rgba(255, 140, 0, 0.9);          /* Orange color with slight transparency */
+    margin-bottom: 25px;                     /* Space below the header */
+    letter-spacing: 2px;                     /* Spacing between letters for style */
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.6); /* Orange glow effect on text */
+}
+
+/* Navigation button base styling with gradient background */
+.nav-btn {
+    width: 100%;                             /* Full width of container */
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(255, 69, 0, 0.3)); /* Diagonal red to orange gradient */
+    border: 1px solid rgba(255, 140, 0, 0.6); /* Orange border around button */
+    border-radius: 15px;                     /* Rounded corners for buttons */
+    padding: 15px;                           /* Internal spacing inside button */
+    margin-bottom: 15px;                     /* Space between buttons */
+    color: white;                            /* White text color */
+    cursor: pointer;                         /* Changes cursor to hand when hovering */
+    transition: all 0.4s ease;               /* Smooth animation for all property changes */
+    position: relative;                      /* Required for pseudo-elements and z-index */
+    z-index: 5;                             /* Ensures buttons are above other elements */
+    pointer-events: auto;                    /* Ensures buttons can be clicked */
+    overflow: hidden;                        /* Hides the shine effect when it's outside button */
+}
+
+/* Creates a sliding shine effect that appears before the button content */
+.nav-btn::before {
+    content: '';                             /* Required for pseudo-element to display */
+    position: absolute;                      /* Position relative to the button */
+    top: 0;                                 /* Align to top of button */
+    left: -100%;                            /* Start position - completely off screen to the left */
+    width: 100%;                            /* Same width as the button */
+    height: 100%;                           /* Same height as the button */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); /* Horizontal white shine effect */
+    transition: left 0.5s ease;             /* Smooth animation when moving across button */
+    pointer-events: none;                   /* CRITICAL: Allows clicks to pass through to button */
+    z-index: 1;                             /* Places shine effect above button background but below text */
+}
+
+
+/* Moves the shine effect across the button when hovered */
+.nav-btn:hover::before {
+    left: 100%;                             /* End position - completely off screen to the right */
+}
+
+
+/* Button hover effects - changes appearance when mouse is over button */
+.nav-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.5), rgba(255, 69, 0, 0.5)); /* Enhanced gradient on hover */
+    border-color: rgba(255, 140, 0, 1);     /* Brighter orange border on hover */
+    transform: translateY(-5px);            /* Lifts button up 5 pixels for 3D effect */
+    box-shadow: 0 10px 25px rgba(255, 69, 0, 0.4); /* Adds shadow beneath lifted button */
+}
+
+/* Icon styling inside navigation buttons */
+.btn-icon {
+    font-size: 1.5rem;                      /* Large icon size for visibility */
+    margin-bottom: 8px;                     /* Space between icon and text */
+    display: block;                         /* Makes icon appear on its own line */
+    position: relative;                      /* Ensures icon appears above shine effect */
+    z-index: 2;                             /* Places icon above shine effect */
+}
+
+/* Text styling inside navigation buttons */
+.btn-text {
+    font-weight: 600;                       /* Semi-bold text weight for readability */
+    position: relative;                      /* Ensures text appears above shine effect */
+    z-index: 2;                             /* Places text above shine effect */
+}
+
+
+/* Icon styling inside navigation buttons */
+.btn-icon {
+    font-size: 1.5rem;                      /* Large icon size for visibility */
+    margin-bottom: 8px;                     /* Space between icon and text */
+    display: block;                         /* Makes icon appear on its own line */
+}
+
+/* Styling for a potential glowing element within the button (if used) */
+.btn-glow {
+    position: absolute;                     /* Positions the glow element precisely within its parent */
+    top: 50%;                               /* Vertically centers the glow element */
+    left: 50%;                              /* Horizontally centers the glow element */
+    transform: translate(-50%, -50%);       /* Adjusts position to truly center it based on its own size */
+    width: 0;                               /* Starts with no width (will animate) */
+    height: 0;                              /* Starts with no height (will animate) */
+    background: rgba(255, 255, 255, 0.1);   /* Semi-transparent white background for the glow */
+    border-radius: 50%;                     /* Makes the glow effect circular */
+    transition: width 0.5s ease, height 0.5s ease, background 0.5s ease; /* Smooth animation for size and color changes */
+    z-index: 0;                             /* Places the glow behind button content but above button background */
+}
+
+/* Expands the glow effect when the button is hovered */
+.nav-btn:hover .btn-glow {
+    width: 150%;                            /* Expands glow width beyond button size */
+    height: 150%;                           /* Expands glow height beyond button size */
+    background: rgba(255, 255, 255, 0.2);   /* Makes the glow slightly more opaque on hover */
+}
+
+/* Style for any additional content that might be in the main grid */
+.content-area, .card {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 69, 0, 0.5);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.card h3 { /* Styles for level 3 headings inside cards */
+    color: rgba(255, 140, 0, 0.9); /* Sets the heading text color to a semi-transparent orange */
+    font-size: 1.5rem; /* Sets the heading font size to 1.5 times the base font size */
+    margin-bottom: 15px; /* Adds space below the heading */
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.6); /* Adds a soft orange glow effect to the heading text */
+}
+
+.card p { /* Styles for paragraphs inside cards */
+    line-height: 1.6; /* Sets the line spacing for paragraphs for better readability */
+    color: rgba(255, 255, 255, 0.9); /* Sets the paragraph text color to a semi-transparent white */
+}
+
+@media (max-width: 768px) { /* Applies styles only when screen width is 768 pixels or less (for tablets/mobiles) */
+    .main-grid { /* Adjusts the main grid layout for smaller screens */
+        grid-template-columns: 1fr; /* Changes grid to a single column layout */
+        padding: 20px; /* Reduces overall padding around the grid */
+        gap: 20px; /* Reduces space between grid items */
+    }
+
+    .main-title { /* Adjusts the main title for smaller screens */
+        font-size: 2.5rem; /* Reduces the main title font size */
+    }
+    
+    .nav-panel { /* Adjusts the navigation panel for smaller screens */
+        order: 2; /* Changes the display order of the navigation panel in the grid */
+    }
+
+    
+    .nav-btn { /* Adjusts navigation button layout for smaller screens */
+        display: flex; /* Arranges button content (icon and text) in a row */
+        align-items: center; /* Vertically centers icon and text within the button */
+        gap: 10px; /* Adds space between the icon and text */
+        text-align: left; /* Aligns text to the left within the button */
+    }
+
+    .btn-icon { /* Adjusts button icon styling for smaller screens */
+        font-size: 1.2rem; /* Reduces the icon size slightly */
+        margin-bottom: 0; /* Removes any bottom margin on the icon */
+    }
+}
+
+/* Custom scrollbar styling (for Webkit browsers like Chrome, Safari) */
+::-webkit-scrollbar { /* Styles the entire scrollbar */
+    width: 8px; /* Sets the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track { /* Styles the background track of the scrollbar */
+    background: rgba(0, 0, 0, 0.2); /* Semi-transparent dark background for the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb { /* Styles the draggable part (thumb) of the scrollbar */
+    background: linear-gradient(45deg, #ff0000, #ff4500); /* Applies a red to orange gradient to the scrollbar thumb */
+    border-radius: 4px; /* Rounds the corners of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover { /* Styles the scrollbar thumb when hovered over */
+    background: linear-gradient(45deg, #ff4500, #ff6600); /* Changes gradient to orange to light orange on hover */
+}
+
+
+::-webkit-scrollbar-thumb:hover { /* Styles the scrollbar thumb when hovered over */
+    background: linear-gradient(45deg, #ff4500, #ff6600); /* Changes gradient to orange to light orange on hover */
+}
+
+/* Airplane image styles */
+.airplane-image { /* Styles the main airplane image */
+    width: 100%; /* Makes the image take up the full width of its container */
+    max-width: 400px; /* Limits the maximum width of the image to 400 pixels */
+    height: 150px; /* Sets a fixed height for the image */
+    object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
+    border-radius: 12px; /* Rounds the corners of the image slightly */
+    transition: all 0.5s ease; /* Smoothly animates any changes to the image properties over 0.5 seconds */
+    filter: contrast(1.2) saturate(1.1); /* Increases contrast and saturation slightly for a vibrant look */
+}
+
+.airplane-image:hover { /* Styles for the airplane image when hovered over */
+    transform: scale(1.15) rotate(3deg); /* Enlarges the image by 15% and rotates it slightly */
+    filter: contrast(1.4) saturate(1.3) brightness(1.1); /* Further enhances contrast, saturation, and brightness on hover */
+}

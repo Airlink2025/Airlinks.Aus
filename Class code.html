@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airlinks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="geometric-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <div class="main-grid">
+        <header class="header-section">
+            <div class="title-container">
+                <div class="plane-icon">✈️</div>
+                <h1 class="main-title">Airlinks</h1>
+                <div class="subtitle">Your way to the WORLDWORLD✨</div>
+            </div>
+        </header>
+
+        <nav class="nav-panel">
+            <div class="nav-header">NAVIGATE</div>
+            <button class="nav-btn" onclick="location.href='Safety tips.html'">
+                <span class="btn-icon">🛡️</span>
+                <span class="btn-text">Safety Tips</span>
+                <div class="btn-glow"></div>
+            </button>
+            <button class="nav-btn" onclick="location.href='Airplane-parts.html'">
+                <span class="btn-icon">⚙️</span>
+                <span class="btn-text">Airplane Parts</span>
+                <div class="btn-glow"></div>
+</button>
+            </button>
+            <button class="nav-btn" onclick="location.href='Model-types.html'">
+                <span class="btn-icon">🛩️</span>
+                <span class="btn-text">Model-types</span>
+                <div class="btn-glow"></div>
+            </button>
+            <button class="nav-btn" onclick="location.href='history.html'">
+                <span class="btn-icon">📚</span>
+                <span class="btn-text">History</span>
+                <div class="btn-glow"></div>
+            </button>
+        </nav>
+
+        <div class="image-showcase">
+            <div class="image-frame">
+                <img src="sunset-silhouette-airplane-brh2gmlmjhnj74dv.webp" alt="Cool airplane pic" class="airplane-image">
+                <div class="image-overlay"></div>
+            </div>
+            <div class="stats-mini">
+                <div class="stat">35K ft</div>
+                <div class="stat">500 mph</div>
+            </div>
+        </div>
+
+        <main class="content-area">
+            <div class="card safety-card">
+                <div class="card-accent"></div>
+                <div class="card-header">
+                    <div class="card-icon">🛡️</div>
+                    <h3>SAFETY PROTOCOL</h3>
+                </div>
+                <p>OK, First of all <strong>safety is super important</strong>. To stay safe while flying, passengers should listen carefully to all safety instructions.</p>
+                <div class="card-footer">Priority: HIGH</div>
+            </div>
+
+            <div class="card parts-card">
+                <div class="card-accent"></div>
+                <div class="card-header">
+                    <div class="card-icon">⚙️</div>
+                    <h3>COMPONENTS</h3>
+                </div
+                ><p>Learn about the essential components that make flight possible, from engines to control surfaces.</p>
+                <div class="card-footer">Parts: 1000+</div>
+            </div>
+
+            <div class="card models-card">
+                <div class="card-accent"></div>
+                <div class="card-header">
+                    <div class="card-icon">🛩️</div>
+                    <h3>AIRCRAFT TYPES</h3>
+                </div>
+                <p>Discover different types of aircraft from commercial jets to private planes.</p>
+                <div class="card-footer">Models: 50+</div>
+            </div>
+
+            <div class="card history-card">
+                <div class="card-accent"></div>
+                <div class="card-header">
+                    <div class="card-icon">📚</div>
+                    <h3>EVOLUTION</h3>
+                </div>
+                <p>Explore the fascinating evolution of flight from the Wright brothers to modern supersonic aircraft and space travel.</p>
+                <div class="card-footer">Years: 120+</div>
+            </div>
+        </main>
+
+        <aside class="data-panel">
+            <div class="panel-title">FLIGHT DATA</div>
+            <div class="data-item">
+                <div class="data-label">ALTITUDE</div>
+                <div class="data-value">35,000</div>
+            </div>
+            <div class="data-item">
+                <div class="data-label">SPEED</div>
+                <div class="data-value">500</div>
+            </div>
+            <div class="data-item">
+                <div class="data-label">RANGE</div>
+                <div class="data-value">6,000</div>
+            </div>
+        </aside>
+    </div>
+    <p>&copy; 2025 Airlinks Marcus Yagnamurthy Production</p>
+</body>
+</html>
